@@ -6,15 +6,16 @@ import { createServer } from "./server";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
-    port: 8080,
+    host: "::", // barcha interfeyslarni tinglaydi
+    port: 8080, // Render aniqlagan port
+    allowedHosts: ["javohirr.onrender.com"], // ✅ Render domeningga ruxsat beramiz
     fs: {
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
   build: {
-    outDir: "dist/spa",
+    outDir: "dist/spa", // build natijasi shu papkaga chiqadi
   },
   plugins: [react(), expressPlugin()],
   resolve: {
@@ -28,11 +29,11 @@ export default defineConfig(({ mode }) => ({
 function expressPlugin(): Plugin {
   return {
     name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
+    apply: "serve", // faqat development vaqtida ishlaydi
     configureServer(server) {
       const app = createServer();
 
-      // Add Express app as middleware to Vite dev server
+      // Express app’ni Vite serverga middleware sifatida ulaymiz
       server.middlewares.use(app);
     },
   };
