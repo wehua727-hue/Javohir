@@ -1,14 +1,14 @@
-import { defineConfig, Plugin } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { createServer } from "./server";
+import react from "@vitejs/plugin-react-swc"
+import path from "path"
+import { defineConfig, Plugin } from "vite"
+import { createServer } from "./server"
 
-// https://vitejs.dev/config/
+// Render uchun tayyor Vite konfiguratsiyasi
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::", // barcha interfeyslarni tinglaydi
     port: 8080, // Render aniqlagan port
-    allowedHosts: ["javohirr.onrender.com"], // ✅ Render domeningga ruxsat beramiz
+    allowedHosts: ["fozilov.onrender.com"], // Render domeningiz
     fs: {
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
@@ -32,7 +32,6 @@ function expressPlugin(): Plugin {
     apply: "serve", // faqat development vaqtida ishlaydi
     configureServer(server) {
       const app = createServer();
-
       // Express app’ni Vite serverga middleware sifatida ulaymiz
       server.middlewares.use(app);
     },
