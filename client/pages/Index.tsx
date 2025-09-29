@@ -143,7 +143,13 @@ export default function Index() {
     try {
       const telegramToken = "8407341373:AAENzdAl2-RXLn9OFFQwMtkwPJWd4PRds-w";
       const chatId = "5834939103";
-      const telegramMessage = `*Yangi xabar:*\n\n*Ism:* ${name}\n*Email:* ${email}${phone ? `\n*Telefon:* ${phone}` : ""}\n\n*Xabar:* ${message}`;
+      const telegramMessage = `*Yangi xabar:*
+
+*Ism:* ${name}
+*Email:* ${email}${phone ? `
+*Telefon:* ${phone}` : ""}
+
+*Xabar:* ${message}`;
       
       // Telegram API ga bevosita murojaat qilish
       const telegramResp = await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
@@ -372,15 +378,38 @@ export default function Index() {
         <h2 id="projects-title" className="text-3xl font-bold text-emerald-400 text-center">
           Loyihalar
         </h2>
-        <div className="mt-10 grid place-items-center">
-          <div className="h-16 w-16 rounded-full grid place-items-center bg-emerald-500/10 border border-emerald-800 text-emerald-300">
-            <ExternalLink />
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Shirinliklar Rolami loyihasi */}
+          <div className="rounded-2xl border border-emerald-900/40 overflow-hidden hover:border-emerald-700 transition-colors">
+            <div className="aspect-video bg-gradient-to-br from-emerald-900/30 to-black relative">
+              <img
+                alt="Shirinliklar Rolami"
+                className="w-full h-full object-cover"
+                src="/shirinliklar-preview.jpg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="font-bold text-lg text-white">Shirinliklar Rolami</h3>
+                <p className="text-sm text-emerald-200">Online buyurtma qilish platformasi</p>
+              </div>
+            </div>
+            <div className="p-4">
+              <p className="text-muted-foreground text-sm">
+                Shirinliklar rolami - bu online tarzda turli xil shirinliklarni buyurtma qilish imkonini beruvchi veb-ilova.
+              </p>
+              <a 
+                href="https://shirinliklarrolami-uz.onrender.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center text-emerald-400 hover:text-emerald-300 text-sm font-medium"
+              >
+                Saytga kirish
+                <ExternalLink className="ml-1 h-4 w-4" />
+              </a>
+            </div>
           </div>
-          <p className="mt-6 text-lg font-semibold">Hali loyihalar yo'q</p>
-          <p className="mt-1 text-sm text-muted-foreground text-center max-w-md">
-            Hozirda loyihalar ustida ishlamoqdaman. Tez orada ajoyib loyihalar bilan tanishib qolasiz!
-          </p>
-          <div className="mt-6 text-sm text-emerald-300">• React va Node.js loyihalari</div>
+          
+          {/* Yangi loyihalar shu yerga qo'shiladi */}
         </div>
       </section>
 
