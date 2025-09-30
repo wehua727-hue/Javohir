@@ -267,7 +267,7 @@ export default function Index() {
             <p className="inline-flex items-center text-xs uppercase tracking-wider text-emerald-400">
               Full‑Stack Dasturchi
             </p>
-            <h1 id="hero-title" className="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
+            <h1 id="hero-title" className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
               <span className="bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent">
                 Javohir Fozilov
               </span>
@@ -295,7 +295,7 @@ export default function Index() {
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-emerald-800/30 via-emerald-700/20 to-black border border-emerald-900/50 shadow-xl flex items-center justify-center overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(25rem_25rem_at_70%_20%,rgba(16,185,129,0.25),transparent),radial-gradient(20rem_20rem_at_20%_80%,rgba(163,230,53,0.2),transparent)]" />
               <div className="relative z-10 text-center">
-                <div className="mx-auto h-40 w-40 md:h-56 md:w-56 rounded-full p-[3px] bg-gradient-to-br from-emerald-400 to-lime-400">
+                <div className="mx-auto h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56 rounded-full p-[3px] bg-gradient-to-br from-emerald-400 to-lime-400">
                   <ProfileLightbox>
                     <img
                       alt="Javohir Fozilov"
@@ -378,7 +378,7 @@ export default function Index() {
         <h2 id="projects-title" className="text-3xl font-bold text-emerald-400 text-center">
           Loyihalar
         </h2>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Shirinliklar Rolami loyihasi */}
           <div className="rounded-2xl border border-emerald-900/40 overflow-hidden hover:border-emerald-700 transition-colors">
             <div className="aspect-video bg-gradient-to-br from-emerald-900/30 to-black relative">
@@ -421,7 +421,7 @@ export default function Index() {
         <p className="mt-2 text-center text-muted-foreground">Keling, birgalikda ajoyib loyihalar yarataylik! 🚀</p>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left column: contacts & socials */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3 p-4 rounded-xl border border-emerald-900/40 hover:border-emerald-700 transition-colors">
               <span className="h-10 w-10 rounded-full grid place-items-center bg-emerald-500/10 text-emerald-300 border border-emerald-800"><Mail /></span>
               <div className="flex-1">
@@ -449,9 +449,9 @@ export default function Index() {
           </div>
 
           {/* Right column: form */}
-          <form onSubmit={onSend} className="md:col-span-2 rounded-2xl border border-emerald-900/40 p-6 bg-card text-card-foreground grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={onSend} className="md:col-span-2 rounded-2xl border border-emerald-900/40 p-6 bg-card text-card-foreground grid grid-cols-1 gap-4">
             {savedContacts.length > 0 && (
-              <div className="md:col-span-2 grid gap-2">
+              <div className="grid gap-2">
                 <label className="text-sm">
                   Avvalgi kontakt ma'lumotlari
                 </label>
@@ -522,7 +522,7 @@ export default function Index() {
                 <span className="text-xs text-red-400">To'g'ri telefon raqamini kiriting</span>
               )}
             </div>
-            <div className="md:col-span-2 grid gap-2">
+            <div className="grid gap-2">
               <label className="text-sm">
                 Xabar matni
               </label>
@@ -539,7 +539,7 @@ export default function Index() {
               )}
               <div className="text-xs text-muted-foreground text-right">{message.length} ta belgi</div>
             </div>
-            <div className="md:col-span-2 flex justify-end">
+            <div className="flex justify-end">
               <Button disabled={!canSend} type="submit" className="bg-gradient-to-r from-emerald-500 to-lime-500 text-black hover:from-emerald-400 hover:to-lime-400 disabled:opacity-60 disabled:cursor-not-allowed">
                 {sending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />} Xabar Yuborish
               </Button>
